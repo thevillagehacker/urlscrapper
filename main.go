@@ -8,26 +8,17 @@ import (
 	"net/http"
 	"regexp"
 
-	figure "github.com/common-nighthawk/go-figure"
+	"github.com/projectdiscovery/gologger"
 )
 
 func main() {
 
 	//banner
-	banner := figure.NewFigure("URL Scrappy", "", true)
-	banner.Print()
-	fmt.Println("                            ------------------")
-	fmt.Println("                         ~ |Do Hacks to Secure| ~")
-	fmt.Println("                            ------------------")
-	fmt.Println("                                    By                 ")
-	fmt.Println("                   https://twitter.com/thevillagehackr")
+	showBanner()
 
 	//flags
 	url := flag.String("u", "default value", "a string for description")
 	flag.Parse()
-	fmt.Println("-------------------------------------------------------------------------------")
-	fmt.Println("Target URL:", *url)
-	fmt.Println("-------------------------------------------------------------------------------")
 
 	//URL
 	var target string
@@ -56,4 +47,24 @@ func main() {
 			fmt.Println(links)
 		}
 	}
+}
+
+const banner = `
+                  URL Scrapy
+             ------------------
+          ~ |Do Hacks to Secure| ~
+             ------------------             v1.0
+                    By
+`
+
+// Version is the current version of httpx
+const Version = `v1.0`
+
+// showBanner is used to show the banner to the user
+func showBanner() {
+	gologger.Print().Msgf("%s\n", banner)
+	gologger.Print().Msgf("\tThe Village Hacker Security\n\n")
+
+	gologger.Print().Msgf("Use with caution. You are responsible for your actions.\n")
+	gologger.Print().Msgf("Developers assume no liability and are not responsible for any misuse or damages.\n")
 }
