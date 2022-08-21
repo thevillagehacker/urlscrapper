@@ -3,7 +3,9 @@ A web scrapper to extract the URLs embedded on the Website.
 
 ## Installation
 
-`go install -v github.com/thevillagehacker/urlscrapy@latest`
+```
+go install -v github.com/thevillagehacker/urlscrapy@latest
+```
 
 or
               
