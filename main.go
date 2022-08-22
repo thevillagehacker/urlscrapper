@@ -7,8 +7,6 @@ import (
 	"log"
 	"net/http"
 	"regexp"
-
-	"github.com/projectdiscovery/gologger"
 )
 
 func main() {
@@ -49,6 +47,7 @@ func main() {
 	}
 }
 
+// banner
 const banner = `
                   URL Scrapy
              ------------------
@@ -62,9 +61,9 @@ const Version = `v1.0`
 
 // showBanner is used to show the banner to the user
 func showBanner() {
-	gologger.Print().Msgf("%s\n", banner)
-	gologger.Print().Msgf("\tThe Village Hacker Security\n\n")
+	fmt.Printf("%s\n", banner)
+	fmt.Printf("\tThe Village Hacker Security\n\n")
 
-	gologger.Print().Msgf("Use with caution. You are responsible for your actions.\n")
-	gologger.Print().Msgf("Developers assume no liability and are not responsible for any misuse or damages.\n")
+	fmt.Printf("Use with caution. You are responsible for your actions.\n")
+	fmt.Printf("Developers assume no liability and are not responsible for any misuse or damages.\n")
 }
