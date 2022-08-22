@@ -9,6 +9,27 @@ import (
 	"regexp"
 )
 
+// banner
+const banner = `
+                  URL Scrapy
+             ------------------
+          ~ |Do Hacks to Secure| ~
+             ------------------             v1.0
+                    By
+`
+
+// Version is the current version of urlscrapy
+const Version = `v1.0`
+
+// showBanner is used to show the banner to the user
+func showBanner() {
+	fmt.Printf("%s\n", banner)
+	fmt.Printf("\tThe Village Hacker Security\n\n")
+
+	fmt.Printf("Use with caution. You are responsible for your actions.\n")
+	fmt.Printf("Developers assume no liability and are not responsible for any misuse or damages.\n")
+}
+
 func main() {
 
 	//banner
@@ -45,25 +66,4 @@ func main() {
 			fmt.Println(links)
 		}
 	}
-}
-
-// banner
-const banner = `
-                  URL Scrapy
-             ------------------
-          ~ |Do Hacks to Secure| ~
-             ------------------             v1.0
-                    By
-`
-
-// Version is the current version of urlscrapy
-const Version = `v1.0`
-
-// showBanner is used to show the banner to the user
-func showBanner() {
-	fmt.Printf("%s\n", banner)
-	fmt.Printf("\tThe Village Hacker Security\n\n")
-
-	fmt.Printf("Use with caution. You are responsible for your actions.\n")
-	fmt.Printf("Developers assume no liability and are not responsible for any misuse or damages.\n")
 }
