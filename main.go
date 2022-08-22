@@ -36,7 +36,7 @@ func main() {
 	showBanner()
 
 	//flags
-	url := flag.String("u", "default value", "a string for description")
+	url := flag.String("u", "default value", "target url")
 	flag.Parse()
 
 	//URL
