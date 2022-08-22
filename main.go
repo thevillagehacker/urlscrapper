@@ -7,39 +7,18 @@ import (
 	"log"
 	"net/http"
 	"regexp"
+
+	banner "github.com/thevillagehacker/urlscrapy/modules"
 )
-
-// banner
-const banner = `
-                  URL Scrapy
-             ------------------
-          ~ |Do Hacks to Secure| ~
-             ------------------             v1.0
-                    By
-`
-
-// Version is the current version of urlscrapy
-const Version = `v1.0`
-
-// showBanner is used to show the banner to the user
-func showBanner() {
-	fmt.Printf("%s\n", banner)
-	fmt.Printf("\tThe Village Hacker Security\n\n")
-
-	fmt.Printf("Use with caution. You are responsible for your actions.\n")
-	fmt.Printf("Developers assume no liability and are not responsible for any misuse or damages.\n")
-}
 
 func main() {
 
 	//banner
-	showBanner()
+	banner.ShowBanner()
 
 	//flags
 	url := flag.String("u", "default value", "target url")
 	flag.Parse()
-
-	//URL
 	var target string
 	target = *url
 
