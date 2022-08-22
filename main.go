@@ -57,7 +57,7 @@ const banner = `
                     By
 `
 
-// Version is the current version of httpx
+// Version is the current version of urlscrapy
 const Version = `v1.0`
 
 // showBanner is used to show the banner to the user
