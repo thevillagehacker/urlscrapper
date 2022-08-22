@@ -14,7 +14,7 @@ git clone https://github.com/thevillagehacker/urlscrapy.git
 cd urlscrapy
 go build
 ```
-**bd1** binary will be created and Move the binary to the required folder and add the path to the environment variables.
+**urlscrapy** binary will be created and Move the binary to the required folder and add the path to the environment variables.
 
 ## Usage
 `go run urlscrapy.go -u https://example.com`
