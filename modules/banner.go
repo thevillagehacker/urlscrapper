@@ -6,7 +6,7 @@ import (
 
 // banner
 const banner = `
-                  URL Scrapper
+            	URL Scrapper
              ------------------
           ~ |Do Hacks to Secure| ~
              ------------------             v1.0
@@ -23,4 +23,5 @@ func ShowBanner() {
 
 	fmt.Printf("Use with caution. You are responsible for your actions.\n")
 	fmt.Printf("Developers assume no liability and are not responsible for any misuse or damages.\n")
+	fmt.Printf("--------------------------------------------------------------------------------- \n")
 }
