@@ -9,7 +9,7 @@ const banner = `
             	URL Scrapper
              ------------------
           ~ |Do Hacks to Secure| ~
-             ------------------             v1.0
+             ------------------             v1.1
                     By
 `
 

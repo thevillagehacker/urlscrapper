@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 
 	banner "github.com/thevillagehacker/urlscrapper/modules"
@@ -13,11 +14,12 @@ import (
 
 func main() {
 
-	//banner
+	// Show banner
 	banner.ShowBanner()
 
-	//flags
+	// Define flags
 	url := flag.String("u", "default value", "target url")
+	output := flag.String("o", "", "output file name") // New flag for output file
 	flag.Parse()
 	var target string
 	target = *url
@@ -29,7 +31,7 @@ func main() {
 	}
 	defer response.Body.Close()
 
-	// Read response data in to memory
+	// Read response data into memory
 	body, err := ioutil.ReadAll(response.Body)
 	if err != nil {
 		log.Fatal("Error reading HTTP body. ", err)
@@ -41,8 +43,22 @@ func main() {
 	if urls == nil {
 		fmt.Println("No matches.")
 	} else {
+		var file *os.File
+		if *output != "" {
+			// Open file for writing
+			file, err = os.Create(*output)
+			if err != nil {
+				log.Fatal("Error creating output file. ", err)
+			}
+			defer file.Close()
+		}
+
+		// Print URLs to both console and file (if specified)
 		for _, links := range urls {
-			fmt.Println(links)
+			fmt.Println(links) // Print to console
+			if file != nil {
+				fmt.Fprintln(file, links) // Write to file
+			}
 		}
 	}
 }
