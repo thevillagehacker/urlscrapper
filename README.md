@@ -30,7 +30,7 @@ urlscrapper -u https://example.com
 
 ## Update
 - [X] Can now output the scrapped data into a file using `-o` flag.
-- [X] Can now print HTTP status code of the scrapped URLs.
+- [X] Can now print HTTP status code of the scrapped URLs using `-sc` flag.
 
 ### Example
 
