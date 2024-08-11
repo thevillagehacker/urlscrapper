@@ -40,6 +40,9 @@ urlscrapper -u https://example.com
 ```sh
 urlscrapper -u https://example.com -sc
 ```
+
+![img](/assets/usage.png)
+
 **Print the results to the output file**
 
 ```sh
