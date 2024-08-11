@@ -6,7 +6,7 @@ import (
 
 // banner
 const banner = `
-                  URL Scrapy
+                  URL Scrapper
              ------------------
           ~ |Do Hacks to Secure| ~
              ------------------             v1.0
