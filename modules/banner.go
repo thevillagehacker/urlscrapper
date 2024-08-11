@@ -14,7 +14,7 @@ const banner = `
 `
 
 // Version is the current version of urlscrapy
-const Version = `v1.0`
+const Version = `v1.1`
 
 // showBanner is used to show the banner to the user
 func ShowBanner() {
