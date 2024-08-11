@@ -9,6 +9,7 @@ import (
 	"os"
 	"regexp"
 
+	"github.com/fatih/color" // Importing the color package for colored output
 	banner "github.com/thevillagehacker/urlscrapper/modules"
 )
 
@@ -19,12 +20,13 @@ func main() {
 
 	// Define flags
 	url := flag.String("u", "default value", "target url")
-	output := flag.String("o", "", "output file name") // New flag for output file
+	output := flag.String("o", "", "output file name")       // Flag for output file
+	statusCheck := flag.Bool("sc", false, "check status codes for URLs") // Flag for status code check
 	flag.Parse()
 	var target string
 	target = *url
 
-	// Make HTTP request
+	// Make HTTP request to the target URL
 	response, err := http.Get(target)
 	if err != nil {
 		log.Fatal(err)
@@ -53,12 +55,54 @@ func main() {
 			defer file.Close()
 		}
 
-		// Print URLs to both console and file (if specified)
-		for _, links := range urls {
-			fmt.Println(links) // Print to console
-			if file != nil {
-				fmt.Fprintln(file, links) // Write to file
+		// Print URLs and optionally check status codes
+		for _, link := range urls {
+			if *statusCheck {
+				// Send HTTP request to the URL and get the status code
+				resp, err := http.Get(link)
+				if err != nil {
+					log.Printf("Error checking status code for %s: %v\n", link, err)
+					if file != nil {
+						fmt.Fprintf(file, "Error checking status code for %s: %v\n", link, err)
+					}
+				} else {
+					statusCode := resp.StatusCode
+					coloredStatus := getColorStatus(statusCode)
+
+					// Print to console with colored status code
+					fmt.Printf("%s - %s\n", link, coloredStatus)
+
+					if file != nil {
+						// Write to file without color
+						fmt.Fprintf(file, "%s - %d\n", link, statusCode)
+					}
+					resp.Body.Close()
+				}
+			} else {
+				// Print URLs to console
+				fmt.Println(link)
+
+				if file != nil {
+					// Write URLs to file
+					fmt.Fprintln(file, link)
+				}
 			}
 		}
+	}
+}
+
+// getColorStatus returns the status code as a string with the appropriate color
+func getColorStatus(statusCode int) string {
+	switch {
+	case statusCode == 200:
+		return color.GreenString("%d", statusCode)
+	case statusCode == 301 || statusCode == 302:
+		return color.YellowString("%d", statusCode)
+	case statusCode == 404:
+		return color.BlueString("%d", statusCode)
+	case statusCode == 403 || statusCode >= 500:
+		return color.RedString("%d", statusCode)
+	default:
+		return fmt.Sprintf("%d", statusCode)
 	}
 }
