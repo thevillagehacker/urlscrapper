@@ -34,10 +34,20 @@ urlscrapper -u https://example.com
 - [X] Can now print HTTP status code of the scrapped URLs.
 
 ### Example
+
+**Print the status code data**
+
 ```sh
 urlscrapper -u https://example.com -sc
 ```
+**Print the results to the output file**
 
 ```sh
 urlscrapper -u https://example.com -o out.txt
+```
+
+**Print the results with status code to the output file**
+
+```sh
+urlscrapper -u https://example.com -sc -o out.txt
 ```
