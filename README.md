@@ -29,7 +29,6 @@ urlscrapper -u https://example.com
 ```
 
 ## Update
-- [x] Can now pipe the collected URLs to stdin to other tools to check for status codes and others.
 - [X] Can now output the scrapped data into a file using `-o` flag.
 - [X] Can now print HTTP status code of the scrapped URLs.
 
