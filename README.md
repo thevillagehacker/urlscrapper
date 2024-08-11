@@ -18,7 +18,7 @@ go build
 
 ## Usage
 ```sh
-go run urlscrapper.go -u https://example.com
+go run scrapper.go -u https://example.com
 ```
 
 or
